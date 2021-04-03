@@ -1,2 +1,2 @@
-# Logback Configuration for using YAML as configuration
+# Logback Configuration for using YAML
 In this spring boot project, I am trying to use the application.yaml file as the configuration. As it is a spring project, by default the snake yaml library is available at load time. I think, if you are using any other type of project, you have to provide the yaml parser separately.
