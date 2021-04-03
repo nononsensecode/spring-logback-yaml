@@ -1,0 +1,12 @@
+application:
+  root: "com.nononsensecode.logback"
+  logging:
+    path: $loggingPath
+    filename: $loggingFilename
+    max-history-size: $historySize
+    max-file-size: $historyFileSize
+
+logging:
+  level:
+    root: $rootLoggingLevel
+    com.nononsensecode.logback: $applicationLoggingLevel
