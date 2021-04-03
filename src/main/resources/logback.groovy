@@ -14,11 +14,21 @@ class LoggingConfiguration {
     final String CONSOLE_APPENDER = "CONSOLE"
 
     LoggingConfiguration(String filename) {
+        initAsPerExtension(filename)
+    }
+
+    private void initAsPerExtension(String filename) {
         def extension = StringUtils.getFilenameExtension(filename)
-        if (extension == "yaml" || extension == "yml") {
-            this.init(createMap(filename))
-        } else {
-            this.init(createProperties(filename))
+        switch(extension) {
+            case "yaml":
+            case "yml":
+                this.init(createMap(filename))
+                break
+            case "properties":
+                this.init(createProperties(filename))
+                break
+            default:
+                throw new IllegalArgumentException("File type is not supported for logging configuration")
         }
     }
 
